@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Street Issues</string>
+    <string name="issues_list">قائمه المشاكل</string>
+    <string name="issues_on_map">الخارطة</string>
+    <string name="file_issue">أبلغ عن مشكلة</string>
+    <string name="title">العنوان</string>
+    <string name="description">التفاصيل</string>
+    <string name="date_sample">5 مايو 2019</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="need_permission">يحتاج التطبيق الاذن للوصول الى الموقع الحالي</string>
+    <string name="need_permission_photo">يحتاج التطبيق الاذن للوصول الى الملفات</string>
+    <string name="uploading">تحميل البيانات..</string>
+    <string name="uploading_success">تم تحميل البيانات بنجاح</string>
+    <string name="uploading_failed">فشل تحميل البيانات</string>
+    <string name="uploading_photo_failed">فشل تحميل الصوره</string>
+    <string name="failed_get_location">فشل الحصول على الموقع الحالي</string>
+</resources>
