@@ -110,5 +110,4 @@
         android:onClick="currentLocation"
         app:srcCompat="@drawable/ic_my_location_" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
