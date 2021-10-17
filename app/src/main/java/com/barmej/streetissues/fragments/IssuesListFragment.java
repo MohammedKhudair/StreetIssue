@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+
+import static androidx.recyclerview.widget.RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY;
 
 public class IssuesListFragment extends Fragment implements IssueListAdapter.OnStreetIssueItemClickListener {
     FragmentIssuesListBinding binding;
@@ -46,6 +49,10 @@ public class IssuesListFragment extends Fragment implements IssueListAdapter.OnS
         mAdapter = new IssueListAdapter(mIssueItems, IssuesListFragment.this);
         binding.recyclerView.setAdapter(mAdapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        //Restoring RecyclerView scroll position
+        binding.recyclerView.getAdapter().setStateRestorationPolicy(PREVENT_WHEN_EMPTY);
+
 
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseFirestore.collection("StreetsIssues").addSnapshotListener(new EventListener<QuerySnapshot>() {
