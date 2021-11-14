@@ -20,6 +20,7 @@ import com.barmej.streetissues.databinding.FragmentIssuesListBinding;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -54,8 +55,11 @@ public class IssuesListFragment extends Fragment implements IssueListAdapter.OnS
         binding.recyclerView.getAdapter().setStateRestorationPolicy(PREVENT_WHEN_EMPTY);
 
 
+
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseFirestore.collection("StreetsIssues").addSnapshotListener(new EventListener<QuerySnapshot>() {
+
+        firebaseFirestore.collection("StreetsIssues").orderBy("title", Query.Direction.ASCENDING)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot querySnapshot, @Nullable FirebaseFirestoreException error) {
                 if (error == null) {
